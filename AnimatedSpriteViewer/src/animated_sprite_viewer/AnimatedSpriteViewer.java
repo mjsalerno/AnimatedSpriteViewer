@@ -1,5 +1,6 @@
 package animated_sprite_viewer;
 
+import animated_sprite_viewer.events.StopAnimationHandler;
 import animated_sprite_viewer.events.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,14 +9,11 @@ import java.awt.Insets;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.*;
 import javax.swing.border.Border;
-import sprite_renderer.AnimationState;
 import sprite_renderer.SceneRenderer;
 import sprite_renderer.Sprite;
-import sprite_renderer.SpriteType;
 
 /**
  * The AnimatedSpriteViewer application lets one load and view sprite states and
@@ -240,6 +238,8 @@ public class AnimatedSpriteViewer extends JFrame {
         // CONSTRUCT AND REGISTER ALL THE HANDLERS
         StartAnimationHandler sah = new StartAnimationHandler(sceneRenderingPanel);
         startButton.addActionListener(sah);
+        StopAnimationHandler stopah = new StopAnimationHandler(screenRenderingPanel);
+        stopButton.addActionListener(stopah);
     }
 
     /**
