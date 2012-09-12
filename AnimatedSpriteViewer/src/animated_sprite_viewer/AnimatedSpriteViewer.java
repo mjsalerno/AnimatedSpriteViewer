@@ -238,8 +238,12 @@ public class AnimatedSpriteViewer extends JFrame {
         // CONSTRUCT AND REGISTER ALL THE HANDLERS
         StartAnimationHandler sah = new StartAnimationHandler(sceneRenderingPanel);
         startButton.addActionListener(sah);
-        StopAnimationHandler stopah = new StopAnimationHandler(screenRenderingPanel);
+        StopAnimationHandler stopah = new StopAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(stopah);
+        SpeedUpAnimationHandler fastah = new SpeedUpAnimationHandler(sceneRenderingPanel);
+        stopButton.addActionListener(fastah);
+        SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
+        stopButton.addActionListener(slowah);
     }
 
     /**
