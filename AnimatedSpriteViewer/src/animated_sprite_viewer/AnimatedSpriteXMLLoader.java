@@ -199,6 +199,7 @@ public class AnimatedSpriteXMLLoader
     {
         try
         {
+            
             // 1. Lookup a factory for the W3C XML Schema language
             SchemaFactory factory = 
                     SchemaFactory.newInstance(SCHEMA_STANDARD_SPEC_URL);
