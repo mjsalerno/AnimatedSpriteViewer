@@ -152,8 +152,7 @@ public class AnimatedSpriteViewer extends JFrame {
 //            sprite.setVelocityY(0);
             //this.spriteList.add(new Sprite(st, AnimationState.IDLE));
             //this.allSpritesList.add(sprite);
-            this.spriteList.add(sprite);
-            System.out.println("");
+            this.allSpritesList.add(sprite);
         }
     }
 
@@ -281,7 +280,7 @@ public class AnimatedSpriteViewer extends JFrame {
         stopButton.addActionListener(fastah);
         SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(slowah);
-        spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.spriteStateCombobox, this.spriteTypesList));
+        spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.allSpritesList, this.spriteList, this.spriteStateCombobox, this.spriteTypesList));
         this.spriteStateCombobox.addActionListener(new ComboBoxHandler(this.spriteStateCombobox, this.spriteList));
     }
 

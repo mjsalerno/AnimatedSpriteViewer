@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import sprite_renderer.Sprite;
 
 /**
  * The StartAnimationHandler class responds to when the user
@@ -21,14 +22,18 @@ public class ListHandler implements ListSelectionListener
     private ArrayList<String>[] names;
     private JComboBox box;
     private JList jList;
+    private ArrayList<Sprite> allSprites;
+    private ArrayList<Sprite> sprites;
     
     
    
-    public ListHandler(ArrayList<String>[] names, JComboBox box, JList jList)
+    public ListHandler(ArrayList<String>[] names, ArrayList<Sprite> allSprites,ArrayList<Sprite> sprites, JComboBox box, JList jList)
     {
         this.names = names;
         this.box = box;
         this.jList = jList;
+        this.allSprites = allSprites;
+        this.sprites = sprites;
     }    
 
     /**
@@ -42,7 +47,9 @@ public class ListHandler implements ListSelectionListener
 
     @Override
     public void valueChanged(ListSelectionEvent e) {        
-        if (box != null && box.getItemCount() > 0) {  
+        if (box != null && box.getItemCount() > 0) { 
+            sprites.clear();
+            sprites.add(allSprites.get(jList.getSelectedIndex()));
             box.removeAllItems();
             box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
             for(String s : names[jList.getSelectedIndex()]){
