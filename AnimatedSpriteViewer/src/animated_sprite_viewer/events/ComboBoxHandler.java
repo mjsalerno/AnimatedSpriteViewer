@@ -1,8 +1,12 @@
 package animated_sprite_viewer.events;
 
+import animated_sprite_viewer.AnimatedSpriteViewer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import sprite_renderer.SceneRenderer;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import sprite_renderer.AnimationState;
+import sprite_renderer.Sprite;
 
 /**
  * The StartAnimationHandler class responds to when the user
@@ -14,30 +18,21 @@ import sprite_renderer.SceneRenderer;
  */
 public class ComboBoxHandler implements ActionListener
 {
-    // THIS IS REALLY THE ONLY ONE WHO CAN PAUSE OR UNPAUSE ANIMATION
-    private SceneRenderer renderer;
+    private JComboBox box;
+    private ArrayList<Sprite> sprites;
     
-    /**
-     * Constructor will need the renderer for when the event happens.
-     * 
-     * @param initRenderer Renderers stop the rendering.
-     */
-    public ComboBoxHandler(SceneRenderer initRenderer)
+    
+    public ComboBoxHandler(JComboBox box, ArrayList<Sprite> sprites)
     {
-        // KEEP THIS FOR LATER
-        renderer = initRenderer;
+        this.box = box;
+        this.sprites = sprites;
     }    
 
-    /**
-     * Here's the actual method called when the user clicks the 
-     * start animation method, which results in unpausing of the
-     * renderer, and thus the animator as well.
-     * 
-     * @param ae Contains information about the event.
-     */
-    @Override
-    public void actionPerformed(ActionEvent ae)
-    {
-        //renderer.
+        @Override
+    public void actionPerformed(ActionEvent ae) {
+        if (box != null && box.getItemAt(box.getSelectedIndex()) != null &&!AnimatedSpriteViewer.SELECT_ANIMATION_TEXT.equals(box.getItemAt(box.getSelectedIndex()).toString())) {
+            sprites.get(0).setAnimationState(AnimationState.valueOf(box.getItemAt(box.getSelectedIndex()).toString()));
+        }
+
     }
 }
