@@ -1,8 +1,11 @@
 package animated_sprite_viewer.events;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import sprite_renderer.SceneRenderer;
+import animated_sprite_viewer.AnimatedSpriteViewer;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  * The StartAnimationHandler class responds to when the user
@@ -12,20 +15,20 @@ import sprite_renderer.SceneRenderer;
  *          Debugging Enterprises
  * @version 1.0
  */
-public class ListHandler implements ActionListener
+public class ListHandler implements ListSelectionListener
 {
     // THIS IS REALLY THE ONLY ONE WHO CAN PAUSE OR UNPAUSE ANIMATION
-    private SceneRenderer renderer;
+    private ArrayList<String>[] names;
+    private JComboBox box;
+    private JList jList;
     
-    /**
-     * Constructor will need the renderer for when the event happens.
-     * 
-     * @param initRenderer Renderers can pause and unpause the rendering.
-     */
-    public ListHandler(SceneRenderer initRenderer)
+    
+   
+    public ListHandler(ArrayList<String>[] names, JComboBox box, JList jList)
     {
-        // KEEP THIS FOR LATER
-        renderer = initRenderer;
+        this.names = names;
+        this.box = box;
+        this.jList = jList;
     }    
 
     /**
@@ -35,9 +38,18 @@ public class ListHandler implements ActionListener
      * 
      * @param ae Contains information about the event.
      */
+   
+
     @Override
-    public void actionPerformed(ActionEvent ae)
-    {
-        
+    public void valueChanged(ListSelectionEvent e) {        
+        if (box != null && box.getItemCount() > 0) {  
+            box.removeAllItems();
+            box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
+            for(String s : names[jList.getSelectedIndex()]){
+                box.addItem(s);
+            }
+            box.setEnabled(true);
+        }
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 }

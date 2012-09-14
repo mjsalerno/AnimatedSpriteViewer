@@ -178,6 +178,7 @@ public class AnimatedSpriteViewer extends JFrame {
         spriteTypesList = new JList();
         spriteTypesList.setModel(spriteTypesListModel);
         spriteTypesListJSP = new JScrollPane(spriteTypesList);
+        
 
         // OUR COMBO BOX STARTS OUT EMPTY
         spriteStateComboBoxModel = new DefaultComboBoxModel();
@@ -282,6 +283,7 @@ public class AnimatedSpriteViewer extends JFrame {
         stopButton.addActionListener(fastah);
         SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(slowah);
+        spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.spriteStateCombobox, this.spriteTypesList));
     }
 
     /**
