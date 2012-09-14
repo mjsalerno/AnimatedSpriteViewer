@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.*;
 import javax.swing.border.Border;
+import sprite_renderer.AnimationState;
+import sprite_renderer.PoseList;
 import sprite_renderer.SceneRenderer;
 import sprite_renderer.Sprite;
+import sprite_renderer.SpriteType;
 
 /**
  * The AnimatedSpriteViewer application lets one load and view sprite states and
@@ -49,6 +52,8 @@ public class AnimatedSpriteViewer extends JFrame {
     // WE'LL LOAD ALL THE SPRITE TYPES INTO LIST
     // FROM AN XML FILE
     private ArrayList<String> spriteTypeNames;
+    
+    private ArrayList<String>[] animationNames;
     // THIS WILL DO OUR XML FILE LOADING FOR US
     private AnimatedSpriteXMLLoader xmlLoader;
     // THE WEST WILL PROVIDE SPRITE TYPE AND ANIM STATE SELECTION CONTROLS
@@ -112,7 +117,13 @@ public class AnimatedSpriteViewer extends JFrame {
 
             // FIRST UP IS THE SPRITE TYPES LIST
             xmlLoader.loadSpriteTypeNames(SPRITES_DATA_PATH,
-                    SPRITE_TYPE_LIST_FILE, spriteTypeNames);
+                    SPRITE_TYPE_LIST_FILE, spriteTypeNames); 
+            this.animationNames = new ArrayList[spriteTypeNames.size()];
+            for(int i = 0 ; i < animationNames.length; i++){
+                animationNames[i] = new ArrayList<String>();
+            }
+            
+            initSprites(xmlLoader);
         } catch (InvalidXMLFileFormatException ixffe) {
             // IF WE DON'T HAVE A VALID SPRITE TYPE 
             // LIST WE HAVE NOTHING TO DO, WE'LL POP
@@ -121,6 +132,33 @@ public class AnimatedSpriteViewer extends JFrame {
             JOptionPane.showMessageDialog(this, ixffe.toString());
             System.exit(0);
         }
+    }
+    
+    private void initSprites(AnimatedSpriteXMLLoader xmlLoader) throws InvalidXMLFileFormatException{
+        for (int i = 0; i < spriteTypeNames.size(); i++) {
+                //get root node of a sprite
+                WhitespaceFreeXMLNode node = xmlLoader.loadXMLDocument(SPRITES_DATA_PATH + spriteTypeNames.get(i) + "/" + spriteTypeNames.get(i) + ".xml", SPRITES_DATA_PATH + SPRITE_TYPE_SCHEMA_FILE).getRoot();
+                //make a sprite type with propper width and height
+                SpriteType st = new SpriteType(Integer.parseInt(node.getChildOfType("width").getData()), Integer.parseInt(node.getChildOfType("height").getData()));                
+                //add images to the sprite type
+                for( WhitespaceFreeXMLNode n : node.getChildOfType("images_list").getChildrenOfType("image_file") ){
+                    st.addImage(Integer.parseInt(n.getAttributeValue("id")), Toolkit.getDefaultToolkit().createImage(SPRITES_DATA_PATH + spriteTypeNames.get(i) + "/" + spriteTypeNames.get(i) + n.getAttributeValue("file_name")));
+                }
+                
+                //add poses to the sprite type
+                for( WhitespaceFreeXMLNode n : node.getChildOfType("animations_list").getChildrenOfType("animation_state")){
+                    ArrayList<WhitespaceFreeXMLNode> poses = n.getChildOfType("animation_sequence").getChildrenOfType("pose");
+                    this.animationNames[i].add(n.getChildOfType("state").getData());
+                    PoseList poseList = st.addPoseList(AnimationState.valueOf(n.getChildOfType("state").getData()));
+                    for( WhitespaceFreeXMLNode p : poses){
+                        poseList.addPose(Integer.parseInt(p.getAttributeValue("image_id")), Integer.parseInt(p.getAttributeValue("duration")));
+                    }
+                }
+                
+                this.spriteList.add(new Sprite(st, AnimationState.IDLE));
+                System.out.println("");
+                
+            }
     }
 
     /**
