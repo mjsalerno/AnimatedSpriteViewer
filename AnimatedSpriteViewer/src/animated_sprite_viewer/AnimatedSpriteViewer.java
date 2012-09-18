@@ -39,6 +39,7 @@ public class AnimatedSpriteViewer extends JFrame {
     // WE'LL ONLY ACTUALLY HAVE ONE SPRITE AT A TIME IN HERE,
     // THE ONE THAT WE ARE CURRENTLY VIEWING
     private ArrayList<Sprite> spriteList;
+    private ArrayList<SpriteType> spriteTypes;    
     private ArrayList<Sprite> allSpritesList;
     // WE'LL LOAD ALL THE SPRITE TYPES INTO LIST
     // FROM AN XML FILE
@@ -95,6 +96,7 @@ public class AnimatedSpriteViewer extends JFrame {
      */
     private void initData() {
         // WE'LL ONLY PUT ONE SPRITE IN THIS
+        spriteTypes = new ArrayList<SpriteType>();
         spriteList = new ArrayList<Sprite>();
         allSpritesList = new ArrayList<Sprite>();
 
@@ -146,8 +148,9 @@ public class AnimatedSpriteViewer extends JFrame {
                     poseList.addPose(Integer.parseInt(p.getAttributeValue("image_id")), Integer.parseInt(p.getAttributeValue("duration")));
                 }
             }
-            Sprite sprite = new Sprite(st, AnimationState.IDLE);   
-            sprite.setPositionX((sceneRenderingPanel.getWidth() / 2 ) - (st.getWidth() / 2));
+            
+            this.spriteTypes.add(st);
+            Sprite sprite = new Sprite(st, AnimationState.IDLE);
             this.allSpritesList.add(sprite);
         }
         } catch(Exception e){

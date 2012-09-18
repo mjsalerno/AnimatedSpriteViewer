@@ -6,8 +6,9 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import sprite_renderer.AnimationState;
+import sprite_renderer.SceneRenderer;
 import sprite_renderer.Sprite;
+import sprite_renderer.SpriteType;
 
 /**
  * The StartAnimationHandler class responds to when the user
@@ -25,16 +26,20 @@ public class ListHandler implements ListSelectionListener
     private JList jList;
     private ArrayList<Sprite> allSprites;
     private ArrayList<Sprite> sprites;
+    private ArrayList<SpriteType> spriteTypes;
+    private SceneRenderer renderer;
     
     
    
-    public ListHandler(ArrayList<String>[] names, ArrayList<Sprite> allSprites,ArrayList<Sprite> sprites, JComboBox box, JList jList)
+    public ListHandler(ArrayList<String>[] names, ArrayList<Sprite> allSprites,ArrayList<Sprite> sprites, JComboBox box, JList jList, ArrayList<SpriteType> spriteTypes, SceneRenderer renderer)
     {
         this.names = names;
         this.box = box;
         this.jList = jList;
         this.allSprites = allSprites;
         this.sprites = sprites;
+        this.spriteTypes = spriteTypes;
+        this.renderer = renderer;
     }    
 
     /**
@@ -52,9 +57,8 @@ public class ListHandler implements ListSelectionListener
         {
             sprites.clear();
             sprites.add(allSprites.get(jList.getSelectedIndex()));
-            sprites.get(0).setPositionX(275);
-            sprites.get(0).setPositionY(100);
-            
+            allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
+            allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
             box.removeAllItems();
             box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
             for(String s : names[jList.getSelectedIndex()]){
