@@ -287,6 +287,7 @@ public class AnimatedSpriteViewer extends JFrame {
         stopButton.addActionListener(slowah);
         spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.allSpritesList, this.spriteList, this.spriteStateCombobox, this.spriteTypesList, spriteTypes, this.sceneRenderingPanel));
         this.spriteStateCombobox.addActionListener(new ComboBoxHandler(this.spriteStateCombobox, this.spriteList));
+        this.addComponentListener(new ResizeHandler(this.sceneRenderingPanel, this.spriteTypes, this.spriteList));
     }
 
     /**
