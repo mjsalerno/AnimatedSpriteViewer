@@ -38,6 +38,6 @@ public class SpeedUpAnimationHandler implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae)
     {
-        renderer.setTimeScaler(renderer.getTimeScaler() + 0.1f);
+        renderer.setTimeScaler(renderer.getTimeScaler() - 0.1f);
     }
 }

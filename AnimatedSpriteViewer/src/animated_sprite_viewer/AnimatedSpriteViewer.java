@@ -73,8 +73,9 @@ public class AnimatedSpriteViewer extends JFrame {
     public AnimatedSpriteViewer() {
         initWindow();
         initData();
-        initGUI();
+        initGUI();        
         initHandlers();
+        initSprites(xmlLoader);
     }
 
     /**
@@ -113,8 +114,7 @@ public class AnimatedSpriteViewer extends JFrame {
             for (int i = 0; i < animationNames.length; i++) {
                 animationNames[i] = new ArrayList<String>();
             }
-
-            initSprites(xmlLoader);
+            
         } catch (InvalidXMLFileFormatException ixffe) {
             // IF WE DON'T HAVE A VALID SPRITE TYPE 
             // LIST WE HAVE NOTHING TO DO, WE'LL POP
@@ -125,7 +125,8 @@ public class AnimatedSpriteViewer extends JFrame {
         }
     }
 
-    private void initSprites(AnimatedSpriteXMLLoader xmlLoader) throws InvalidXMLFileFormatException {
+    private void initSprites(AnimatedSpriteXMLLoader xmlLoader) {
+        try{
         for (int i = 0; i < spriteTypeNames.size(); i++) {
             //get root node of a sprite
             WhitespaceFreeXMLNode node = xmlLoader.loadXMLDocument(SPRITES_DATA_PATH + spriteTypeNames.get(i) + "/" + spriteTypeNames.get(i) + ".xml", SPRITES_DATA_PATH + SPRITE_TYPE_SCHEMA_FILE).getRoot();
@@ -133,7 +134,7 @@ public class AnimatedSpriteViewer extends JFrame {
             SpriteType st = new SpriteType(Integer.parseInt(node.getChildOfType("width").getData()), Integer.parseInt(node.getChildOfType("height").getData()));
             //add images to the sprite type
             for (WhitespaceFreeXMLNode n : node.getChildOfType("images_list").getChildrenOfType("image_file")) {
-                st.addImage(Integer.parseInt(n.getAttributeValue("id")), Toolkit.getDefaultToolkit().createImage(SPRITES_DATA_PATH + spriteTypeNames.get(i) + "/" + spriteTypeNames.get(i) + n.getAttributeValue("file_name")));
+                st.addImage(Integer.parseInt(n.getAttributeValue("id")), Toolkit.getDefaultToolkit().createImage(SPRITES_DATA_PATH + spriteTypeNames.get(i) + "/" + n.getAttributeValue("file_name")));
             }
 
             //add poses to the sprite type
@@ -145,14 +146,12 @@ public class AnimatedSpriteViewer extends JFrame {
                     poseList.addPose(Integer.parseInt(p.getAttributeValue("image_id")), Integer.parseInt(p.getAttributeValue("duration")));
                 }
             }
-            Sprite sprite = new Sprite(st, AnimationState.IDLE);
-//            sprite.setPositionX(300);
-//            sprite.setPositionY(300);
-//            sprite.setVelocityX(0);
-//            sprite.setVelocityY(0);
-            //this.spriteList.add(new Sprite(st, AnimationState.IDLE));
-            //this.allSpritesList.add(sprite);
+            Sprite sprite = new Sprite(st, AnimationState.IDLE);   
+            sprite.setPositionX((sceneRenderingPanel.getWidth() / 2 ) - (st.getWidth() / 2));
             this.allSpritesList.add(sprite);
+        }
+        } catch(Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -221,6 +220,7 @@ public class AnimatedSpriteViewer extends JFrame {
         this.add(sceneRenderingPanel, BorderLayout.CENTER);
         this.add(southPanel, BorderLayout.SOUTH);
     }
+  
 
     /**
      * This helper method empties the combo box with animations and disables the
@@ -278,6 +278,8 @@ public class AnimatedSpriteViewer extends JFrame {
         stopButton.addActionListener(stopah);
         SpeedUpAnimationHandler fastah = new SpeedUpAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(fastah);
+        slowButton.addActionListener(new SlowDownAnimationHandler(this.sceneRenderingPanel));
+        fastButton.addActionListener(new SpeedUpAnimationHandler(this.sceneRenderingPanel));
         SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(slowah);
         spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.allSpritesList, this.spriteList, this.spriteStateCombobox, this.spriteTypesList));

@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import sprite_renderer.AnimationState;
 import sprite_renderer.Sprite;
 
 /**
@@ -47,9 +48,13 @@ public class ListHandler implements ListSelectionListener
 
     @Override
     public void valueChanged(ListSelectionEvent e) {        
-        if (box != null && box.getItemCount() > 0) { 
+        if (box != null && box.getItemCount() > 0) 
+        {
             sprites.clear();
             sprites.add(allSprites.get(jList.getSelectedIndex()));
+            sprites.get(0).setPositionX(275);
+            sprites.get(0).setPositionY(100);
+            
             box.removeAllItems();
             box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
             for(String s : names[jList.getSelectedIndex()]){
@@ -57,6 +62,5 @@ public class ListHandler implements ListSelectionListener
             }
             box.setEnabled(true);
         }
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -32,6 +32,7 @@ public class ComboBoxHandler implements ActionListener
     public void actionPerformed(ActionEvent ae) {
         if (box != null && box.getItemAt(box.getSelectedIndex()) != null &&!AnimatedSpriteViewer.SELECT_ANIMATION_TEXT.equals(box.getItemAt(box.getSelectedIndex()).toString())) {
             sprites.get(0).setAnimationState(AnimationState.valueOf(box.getItemAt(box.getSelectedIndex()).toString()));
+            System.out.println("");         
         }
 
     }
