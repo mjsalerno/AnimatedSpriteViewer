@@ -57,8 +57,8 @@ public class ListHandler implements ListSelectionListener
         {
             sprites.clear();
             sprites.add(allSprites.get(jList.getSelectedIndex()));
-            //allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
-            //allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
+            allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
+            allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f ) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
             box.removeAllItems();
             box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
             for(String s : names[jList.getSelectedIndex()]){
