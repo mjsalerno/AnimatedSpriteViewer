@@ -15,8 +15,8 @@ import sprite_renderer.Sprite;
  */
 public class ComboBoxHandler implements ActionListener {
 
-    private JComboBox box;
-    private ArrayList<Sprite> sprites;
+    private JComboBox box;                 //to see what was selected
+    private ArrayList<Sprite> sprites;     //to change the animation state
 
     /**
      * a full constructor.
