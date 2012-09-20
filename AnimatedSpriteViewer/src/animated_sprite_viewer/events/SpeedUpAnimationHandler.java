@@ -6,21 +6,19 @@ import sprite_renderer.SceneRenderer;
 
 /**
  * The StartAnimationHandler class responds to when the user
- * requests to start animation.
+ * requests to speed up the animation.
  * 
- * @author  Richard McKenna
- *          Debugging Enterprises
- * @version 1.0
+ * @author  Michael
  */
 public class SpeedUpAnimationHandler implements ActionListener
 {
-    // THIS IS REALLY THE ONLY ONE WHO CAN PAUSE OR UNPAUSE ANIMATION
+    // THIS IS REALLY THE ONLY ONE WHO CAN SPEED UP THE ANIMATION
     private SceneRenderer renderer;
     
     /**
      * Constructor will need the renderer for when the event happens.
      * 
-     * @param initRenderer Renderers can pause and unpause the rendering.
+     * @param initRenderer Renderers can speed up the rendering.
      */
     public SpeedUpAnimationHandler(SceneRenderer initRenderer)
     {
@@ -30,8 +28,8 @@ public class SpeedUpAnimationHandler implements ActionListener
 
     /**
      * Here's the actual method called when the user clicks the 
-     * start animation method, which results in unpausing of the
-     * renderer, and thus the animator as well.
+     * speed up animation button, which results in the
+     * animation being sped up.
      * 
      * @param ae Contains information about the event.
      */
