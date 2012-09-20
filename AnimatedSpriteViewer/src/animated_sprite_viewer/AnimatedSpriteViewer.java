@@ -39,12 +39,12 @@ public class AnimatedSpriteViewer extends JFrame {
     // WE'LL ONLY ACTUALLY HAVE ONE SPRITE AT A TIME IN HERE,
     // THE ONE THAT WE ARE CURRENTLY VIEWING
     private ArrayList<Sprite> spriteList;
-    private ArrayList<SpriteType> spriteTypes;    
-    private ArrayList<Sprite> allSpritesList;
+    private ArrayList<SpriteType> spriteTypes; //to store all of the sprite types to get sprite dimentions    
+    private ArrayList<Sprite> allSpritesList;  // store all sprites after xml parsing
     // WE'LL LOAD ALL THE SPRITE TYPES INTO LIST
     // FROM AN XML FILE
-    private ArrayList<String> spriteTypeNames;
-    private ArrayList<String>[] animationNames;
+    private ArrayList<String> spriteTypeNames;  
+    private ArrayList<String>[] animationNames; //holds the animation states of each sprite
     // THIS WILL DO OUR XML FILE LOADING FOR US
     private AnimatedSpriteXMLLoader xmlLoader;
     // THE WEST WILL PROVIDE SPRITE TYPE AND ANIM STATE SELECTION CONTROLS
@@ -128,6 +128,11 @@ public class AnimatedSpriteViewer extends JFrame {
         }
     }
 
+    /**
+     * parses xml files and adds the generated sprites
+     * to the allSpritesList
+     * @param xmlLoader the xml loader that will be parsing the files
+     */
     private void initSprites(AnimatedSpriteXMLLoader xmlLoader) {
         try{
         for (int i = 0; i < spriteTypeNames.size(); i++) {
