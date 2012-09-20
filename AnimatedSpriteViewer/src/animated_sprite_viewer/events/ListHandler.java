@@ -28,12 +28,12 @@ public class ListHandler implements ListSelectionListener {
     /**
      * a full constructor
      * @param names names of all of the animation states per sprite
-     * @param allSprites
-     * @param sprites
-     * @param box
-     * @param jList
-     * @param spriteTypes
-     * @param renderer 
+     * @param allSprites all sprites that exist
+     * @param sprites the sprite list that the renderer has
+     * @param box the JComboBox
+     * @param jList the JList
+     * @param spriteTypes a list of all of the sprite types
+     * @param renderer the renderer that will be rendering the sprites.
      */
     public ListHandler(ArrayList<String>[] names, ArrayList<Sprite> allSprites, ArrayList<Sprite> sprites, JComboBox box, JList jList, ArrayList<SpriteType> spriteTypes, SceneRenderer renderer) {
         this.names = names;
@@ -57,9 +57,13 @@ public class ListHandler implements ListSelectionListener {
         renderer.unpauseScene();
         if (box != null && box.getItemCount() > 0) {
             sprites.clear();
-            sprites.add(allSprites.get(jList.getSelectedIndex()));
+            sprites.add(allSprites.get(jList.getSelectedIndex())); //add the sprite that was selected
+            
+            //when a new sprite is selected, change the position of the sprite to the center of the screen
             allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
             allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
+            
+            //remove all of the old animationStates and add the new ones
             box.removeAllItems();
             box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
             for (String s : names[jList.getSelectedIndex()]) {
