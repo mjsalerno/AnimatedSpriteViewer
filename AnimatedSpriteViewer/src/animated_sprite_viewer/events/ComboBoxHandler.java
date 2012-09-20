@@ -19,7 +19,7 @@ public class ComboBoxHandler implements ActionListener {
     private JComboBox box;                 //to see what was selected
     private ArrayList<Sprite> sprites;     //to change the animation state
     private ArrayList<Sprite> allSprites;  //so i can add sprites back to the renderer
-    private JList list;                    //
+    private JList list;                    //so i can tell what sprite was selected
 
     /**
      * a full constructor.
@@ -36,22 +36,26 @@ public class ComboBoxHandler implements ActionListener {
     }
 
     /**
-     * changes the animation state of the Sprite to the one selected in the combo box
+     * changes the animation state of the Sprite to the one selected in the
+     * combo box
+     *
      * @param ae the ActionEvent that was thrown
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
+        //if the box exists and the item that was selected also exists...
         if (box != null && box.getItemAt(box.getSelectedIndex()) != null) {
-            if(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT.equals(box.getItemAt(box.getSelectedIndex()).toString())){
+            //if the box has seleted the default text remove the sprite from the renderer.
+            if (AnimatedSpriteViewer.SELECT_ANIMATION_TEXT.equals(box.getItemAt(box.getSelectedIndex()).toString())) {
                 sprites.clear();
-            }
-            else if(sprites.isEmpty()){
+            } else if (sprites.isEmpty()) {  //else if the spriteList is empty add the sprite to it
                 sprites.add(allSprites.get(list.getSelectedIndex()));
             }
+            //if the default text is not selected then change the animationstate.
             if (!AnimatedSpriteViewer.SELECT_ANIMATION_TEXT.equals(box.getItemAt(box.getSelectedIndex()).toString())) {
                 sprites.get(0).setAnimationState(AnimationState.valueOf(box.getItemAt(box.getSelectedIndex()).toString()));
             }
-            
+
         }
 
     }
