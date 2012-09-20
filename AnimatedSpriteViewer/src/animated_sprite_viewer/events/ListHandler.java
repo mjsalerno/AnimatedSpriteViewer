@@ -54,6 +54,7 @@ public class ListHandler implements ListSelectionListener {
      */
     @Override
     public void valueChanged(ListSelectionEvent e) {
+        renderer.unpauseScene();
         if (box != null && box.getItemCount() > 0) {
             sprites.clear();
             sprites.add(allSprites.get(jList.getSelectedIndex()));

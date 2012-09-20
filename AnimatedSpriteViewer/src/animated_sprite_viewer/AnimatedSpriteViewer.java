@@ -286,7 +286,7 @@ public class AnimatedSpriteViewer extends JFrame {
         SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
         stopButton.addActionListener(slowah);
         spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.allSpritesList, this.spriteList, this.spriteStateCombobox, this.spriteTypesList, spriteTypes, this.sceneRenderingPanel));
-        this.spriteStateCombobox.addActionListener(new ComboBoxHandler(this.spriteStateCombobox, this.spriteList));
+        this.spriteStateCombobox.addActionListener(new ComboBoxHandler(this.spriteStateCombobox, this.spriteList, this.allSpritesList, this.spriteTypesList));
         this.addComponentListener(new ResizeHandler(this.sceneRenderingPanel, this.spriteTypes, this.spriteList));       
     }
 
