@@ -26,7 +26,7 @@ public class StopAnimationHandler implements ActionListener
 
     /**
      * Here's the actual method called when the user clicks the 
-     * start animation method, which results in the stopping of the
+     * stop animation button, which results in the stopping of the
      * renderer, and thus the animator as well.
      * 
      * @param ae Contains information about the event.

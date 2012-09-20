@@ -26,7 +26,7 @@ public class SlowDownAnimationHandler implements ActionListener
 
     /**
      * Here's the actual method called when the user clicks the 
-     * slow animation method, which results in the slowing down of the
+     * slow animation button, which results in the slowing down of the
      * renderer, and thus the animator as well.
      * 
      * @param ae Contains information about the event.
