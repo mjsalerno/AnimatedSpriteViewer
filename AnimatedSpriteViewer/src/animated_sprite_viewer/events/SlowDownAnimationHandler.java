@@ -5,12 +5,8 @@ import java.awt.event.ActionListener;
 import sprite_renderer.SceneRenderer;
 
 /**
- * The StartAnimationHandler class responds to when the user
- * requests to start animation.
- * 
- * @author  Richard McKenna
- *          Debugging Enterprises
- * @version 1.0
+ * slows down the sprite when the 
+ * @author roofis0
  */
 public class SlowDownAnimationHandler implements ActionListener
 {

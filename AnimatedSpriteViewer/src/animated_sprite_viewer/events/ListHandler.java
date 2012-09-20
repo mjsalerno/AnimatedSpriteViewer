@@ -54,22 +54,24 @@ public class ListHandler implements ListSelectionListener {
      */
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        renderer.unpauseScene();
-        if (box != null && box.getItemCount() > 0) {
-            sprites.clear();
-            sprites.add(allSprites.get(jList.getSelectedIndex())); //add the sprite that was selected
-            
-            //when a new sprite is selected, change the position of the sprite to the center of the screen
-            allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
-            allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
-            
-            //remove all of the old animationStates and add the new ones
-            box.removeAllItems();
-            box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
-            for (String s : names[jList.getSelectedIndex()]) {
-                box.addItem(s);
+        if (!e.getValueIsAdjusting()) {
+            renderer.unpauseScene();
+            if (box != null && box.getItemCount() > 0) {
+                sprites.clear();
+                sprites.add(allSprites.get(jList.getSelectedIndex())); //add the sprite that was selected
+
+                //when a new sprite is selected, change the position of the sprite to the center of the screen
+                allSprites.get(jList.getSelectedIndex()).setPositionX((renderer.getWidth() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getWidth() / 2.0f));
+                allSprites.get(jList.getSelectedIndex()).setPositionY((renderer.getHeight() / 2.0f) - (spriteTypes.get(jList.getSelectedIndex()).getHeight() / 2.0f));
+
+                //remove all of the old animationStates and add the new ones
+                box.removeAllItems();
+                box.addItem(AnimatedSpriteViewer.SELECT_ANIMATION_TEXT);
+                for (String s : names[jList.getSelectedIndex()]) {
+                    box.addItem(s);
+                }
+                box.setEnabled(true);
             }
-            box.setEnabled(true);
         }
     }
 }
