@@ -19,7 +19,7 @@ public class ComboBoxHandler implements ActionListener {
     private JComboBox box;                 //to see what was selected
     private ArrayList<Sprite> sprites;     //to change the animation state
     private ArrayList<Sprite> allSprites;  //so i can add sprites back to the renderer
-    private JList list;
+    private JList list;                    //
 
     /**
      * a full constructor.
