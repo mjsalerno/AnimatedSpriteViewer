@@ -10,13 +10,13 @@ import sprite_renderer.SceneRenderer;
  */
 public class SlowDownAnimationHandler implements ActionListener
 {
-    // THIS IS REALLY THE ONLY ONE WHO CAN PAUSE OR UNPAUSE ANIMATION
+    // THIS IS REALLY THE ONLY ONE WHO CAN SLOW DOWN THE ANIMATION
     private SceneRenderer renderer;
     
     /**
      * Constructor will need the renderer for when the event happens.
      * 
-     * @param initRenderer Renderers can pause and unpause the rendering.
+     * @param initRenderer Renderers can slow down the rendering.
      */
     public SlowDownAnimationHandler(SceneRenderer initRenderer)
     {
@@ -26,7 +26,7 @@ public class SlowDownAnimationHandler implements ActionListener
 
     /**
      * Here's the actual method called when the user clicks the 
-     * start animation method, which results in unpausing of the
+     * slow animation method, which results in the slowing down of the
      * renderer, and thus the animator as well.
      * 
      * @param ae Contains information about the event.
