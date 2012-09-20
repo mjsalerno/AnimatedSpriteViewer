@@ -35,9 +35,11 @@ class ResizeHandler implements ComponentListener {
     }
 
     @Override
-    public void componentResized(ComponentEvent ce) {        
+    public void componentResized(ComponentEvent ce) {     
+        if(!sprites.isEmpty()){
             sprites.get(0).setPositionX((renderer.getWidth() / 2.0f ) - (spriteTypes.get(0).getWidth() / 2.0f));
             sprites.get(0).setPositionY((renderer.getHeight() / 2.0f ) - (spriteTypes.get(0).getHeight() / 2.0f));
+        }
     }
 
     @Override
