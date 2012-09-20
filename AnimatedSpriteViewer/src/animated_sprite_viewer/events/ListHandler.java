@@ -53,6 +53,7 @@ public class ListHandler implements ListSelectionListener {
      * @param ae Contains information about the event.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public void valueChanged(ListSelectionEvent e) {
         if (!e.getValueIsAdjusting()) {
             renderer.unpauseScene();

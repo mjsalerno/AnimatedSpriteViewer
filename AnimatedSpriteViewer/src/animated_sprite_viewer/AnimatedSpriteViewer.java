@@ -1,7 +1,6 @@
 package animated_sprite_viewer;
 
 import animated_sprite_viewer.events.*;
-import animated_sprite_viewer.events.ResizeHandler;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -95,14 +94,15 @@ public class AnimatedSpriteViewer extends JFrame {
      * the sprite states, including their art and animations, loaded before we
      * initialize the GUI.
      */
+    @SuppressWarnings("unchecked")
     private void initData() {
         // WE'LL ONLY PUT ONE SPRITE IN THIS
-        spriteTypes = new ArrayList<SpriteType>();
-        spriteList = new ArrayList<Sprite>();
-        allSpritesList = new ArrayList<Sprite>();
+        spriteTypes = new ArrayList<>();
+        spriteList = new ArrayList<>();
+        allSpritesList = new ArrayList<>();
 
         // WE'LL PUT ALL THE SPRITE TYPES HERE
-        spriteTypeNames = new ArrayList<String>();
+        spriteTypeNames = new ArrayList<>();
 
         // LOAD THE SPRITE TYPES FROM THE XML FILE
         try {
@@ -115,7 +115,7 @@ public class AnimatedSpriteViewer extends JFrame {
                     SPRITE_TYPE_LIST_FILE, spriteTypeNames);
             this.animationNames = new ArrayList[spriteTypeNames.size()];
             for (int i = 0; i < animationNames.length; i++) {
-                animationNames[i] = new ArrayList<String>();
+                animationNames[i] = new ArrayList<>();
             }
             
         } catch (InvalidXMLFileFormatException ixffe) {
@@ -154,7 +154,7 @@ public class AnimatedSpriteViewer extends JFrame {
             Sprite sprite = new Sprite(st, AnimationState.IDLE);
             this.allSpritesList.add(sprite);
         }
-        } catch(Exception e){
+        } catch(InvalidXMLFileFormatException | NumberFormatException e){
             e.printStackTrace();
         }
     }
@@ -163,6 +163,7 @@ public class AnimatedSpriteViewer extends JFrame {
      * This initializes all the GUI components and places them into the frame in
      * their appropriate locations.
      */
+    @SuppressWarnings("unchecked")
     private void initGUI() {
         // NOTE THAT WE'VE ALREADY LOADED THE XML FILE
         // WITH ALL THE SPRITE TYPES, SO WE CAN USE
@@ -230,6 +231,7 @@ public class AnimatedSpriteViewer extends JFrame {
      * This helper method empties the combo box with animations and disables the
      * component.
      */
+    @SuppressWarnings("unchecked")
     private void clearAnimationStatesComboBox() {
         spriteStateComboBoxModel.removeAllElements();
         spriteStateComboBoxModel.addElement(SELECT_ANIMATION_TEXT);
@@ -275,20 +277,16 @@ public class AnimatedSpriteViewer extends JFrame {
      * ensuring the proper responses.
      */
     private void initHandlers() {
-        // CONSTRUCT AND REGISTER ALL THE HANDLERS
-        StartAnimationHandler sah = new StartAnimationHandler(sceneRenderingPanel);
-        startButton.addActionListener(sah);
-        StopAnimationHandler stopah = new StopAnimationHandler(sceneRenderingPanel);
-        stopButton.addActionListener(stopah);
-        SpeedUpAnimationHandler fastah = new SpeedUpAnimationHandler(sceneRenderingPanel);
-        stopButton.addActionListener(fastah);
-        slowButton.addActionListener(new SlowDownAnimationHandler(this.sceneRenderingPanel));
-        fastButton.addActionListener(new SpeedUpAnimationHandler(this.sceneRenderingPanel));
-        SlowDownAnimationHandler slowah = new SlowDownAnimationHandler(sceneRenderingPanel);
-        stopButton.addActionListener(slowah);
-        spriteTypesList.addListSelectionListener(new ListHandler(this.animationNames, this.allSpritesList, this.spriteList, this.spriteStateCombobox, this.spriteTypesList, spriteTypes, this.sceneRenderingPanel));
-        this.spriteStateCombobox.addActionListener(new ComboBoxHandler(this.spriteStateCombobox, this.spriteList, this.allSpritesList, this.spriteTypesList));
-        this.addComponentListener(new ResizeHandler(this.sceneRenderingPanel, this.spriteTypes, this.spriteList));       
+        // CONSTRUCT AND REGISTER ALL THE HANDLERS        
+        startButton.addActionListener(new StartAnimationHandler(sceneRenderingPanel));        
+        stopButton.addActionListener(new StopAnimationHandler(sceneRenderingPanel));
+        stopButton.addActionListener(new SpeedUpAnimationHandler(sceneRenderingPanel));
+        slowButton.addActionListener(new SlowDownAnimationHandler(sceneRenderingPanel));
+        fastButton.addActionListener(new SpeedUpAnimationHandler(sceneRenderingPanel));        
+        stopButton.addActionListener(new SlowDownAnimationHandler(sceneRenderingPanel));
+        spriteTypesList.addListSelectionListener(new ListHandler(animationNames, allSpritesList, spriteList, spriteStateCombobox, spriteTypesList, spriteTypes, sceneRenderingPanel));
+        spriteStateCombobox.addActionListener(new ComboBoxHandler(spriteStateCombobox, spriteList, allSpritesList, spriteTypesList));
+        addComponentListener(new ResizeHandler(sceneRenderingPanel, spriteTypes, spriteList));       
     }
 
     /**
