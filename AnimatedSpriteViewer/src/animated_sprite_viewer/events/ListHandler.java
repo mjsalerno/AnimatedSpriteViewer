@@ -58,6 +58,7 @@ public class ListHandler implements ListSelectionListener {
         if (!e.getValueIsAdjusting()) {
             renderer.unpauseScene();
             if (box != null && box.getItemCount() > 0) {
+                renderer.setTimeScaler(1);  //reset the speed of the sprite once a new sprite was selected
                 sprites.clear();
                 sprites.add(allSprites.get(jList.getSelectedIndex())); //add the sprite that was selected
 

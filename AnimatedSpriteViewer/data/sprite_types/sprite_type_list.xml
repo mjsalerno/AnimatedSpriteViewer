@@ -2,4 +2,6 @@
 <sprite_type_list>
   <sprite_type>box_man</sprite_type>
   <sprite_type>round_man</sprite_type>
+  <sprite_type>half_man</sprite_type>
+<sprite_type>paul_jew</sprite_type>
 </sprite_type_list>
