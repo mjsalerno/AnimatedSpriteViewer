@@ -1,7 +1,7 @@
 package animated_sprite_viewer;
 
-import animated_sprite_viewer.events.ResizeHandler;
 import animated_sprite_viewer.events.*;
+import animated_sprite_viewer.events.ResizeHandler;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -17,7 +17,7 @@ import sprite_renderer.SpriteType;
  * ID# 108512298 
  *
  **/
-class ResizeHandler implements ComponentListener {
+public class ResizeHandler implements ComponentListener {
     
     SceneRenderer renderer;             //so i can get how big the renderer is
     ArrayList<SpriteType> spriteTypes;  //so i can get the width and height of the sprites
