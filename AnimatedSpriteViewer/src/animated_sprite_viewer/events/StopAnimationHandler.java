@@ -5,16 +5,12 @@ import java.awt.event.ActionListener;
 import sprite_renderer.SceneRenderer;
 
 /**
- * The StartAnimationHandler class responds to when the user
- * requests to start animation.
- * 
- * @author  Richard McKenna
- *          Debugging Enterprises
- * @version 1.0
+ * Stops the animation when the button is pressed
+ * @author roofis0
  */
 public class StopAnimationHandler implements ActionListener
 {
-    // THIS IS REALLY THE ONLY ONE WHO CAN PAUSE OR UNPAUSE ANIMATION
+    // THIS IS REALLY THE ONLY ONE WHO CAN STOP ANIMATION
     private SceneRenderer renderer;
     
     /**
@@ -30,7 +26,7 @@ public class StopAnimationHandler implements ActionListener
 
     /**
      * Here's the actual method called when the user clicks the 
-     * start animation method, which results in unpausing of the
+     * start animation method, which results in the stopping of the
      * renderer, and thus the animator as well.
      * 
      * @param ae Contains information about the event.
