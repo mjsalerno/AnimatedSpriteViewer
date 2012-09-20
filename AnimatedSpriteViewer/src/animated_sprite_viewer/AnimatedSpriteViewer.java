@@ -175,8 +175,10 @@ public class AnimatedSpriteViewer extends JFrame {
             spriteTypesListModel.addElement(spriteTypeName);
         }
         spriteTypesList = new JList();
+        spriteTypesList.setVisibleRowCount(3);
         spriteTypesList.setModel(spriteTypesListModel);
         spriteTypesListJSP = new JScrollPane(spriteTypesList);
+        spriteTypesListJSP.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 
         // OUR COMBO BOX STARTS OUT EMPTY
@@ -188,7 +190,7 @@ public class AnimatedSpriteViewer extends JFrame {
         // NOW LET'S ARRANGE ALL OUR CONTROLS IN THE WEST
         westOfSouthPanel = new JPanel();
         westOfSouthPanel.setLayout(new BorderLayout());
-        westOfSouthPanel.add(spriteTypesList, BorderLayout.NORTH);
+        westOfSouthPanel.add(spriteTypesListJSP, BorderLayout.NORTH);
         westOfSouthPanel.add(spriteStateCombobox, BorderLayout.SOUTH);
 
         // AND LET'S PUT A TITLED BORDER AROUND THE WEST OF THE SOUTH
