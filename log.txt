@@ -1,0 +1,336 @@
+* commit 7b6249bc34d065fc6cd25818ada9b820f976e9c2
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 20 15:01:54 2012 -0400
+| 
+|     commented code in the ResizeHandler
+| 
+|  .../src/animated_sprite_viewer/ResizeHandler.java  |   26 +++++++++++++------
+|  1 files changed, 18 insertions(+), 8 deletions(-)
+|  
+* commit ace2a4c04d491e3aa34de13a0d6d8e9286afd9b2
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 20 14:56:16 2012 -0400
+| 
+|     commented code in the ListHandler
+| 
+|  .../animated_sprite_viewer/events/ListHandler.java |   18 +++++++++++-------
+|  1 files changed, 11 insertions(+), 7 deletions(-)
+|  
+* commit cba85f483020c8ee4842aab4bcad9489b1377de9
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 20 14:50:11 2012 -0400
+| 
+|     added more comments to the combobox handler
+| 
+|  AnimatedSpriteViewer/nbproject/project.properties  |    4 ++--
+|  .../events/ComboBoxHandler.java                    |   16 ++++++++++------
+|  2 files changed, 12 insertions(+), 8 deletions(-)
+|  
+* commit d9bff617116cc20d4a216530f83c925a4c30c410
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 19 22:29:00 2012 -0400
+| 
+|     changed things
+| 
+|  .../events/ComboBoxHandler.java                    |    2 +-
+|  1 files changed, 1 insertions(+), 1 deletions(-)
+|  
+* commit 4ecc302b4bb00fa6300bcc00f25767f1276e5c64
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 19 21:43:26 2012 -0400
+| 
+|     project now behaves like the prof. in class
+| 
+|  .../AnimatedSpriteViewer.java                      |    2 +-
+|  .../events/ComboBoxHandler.java                    |   20 +++++++++++++++++---
+|  .../animated_sprite_viewer/events/ListHandler.java |    1 +
+|  3 files changed, 19 insertions(+), 4 deletions(-)
+|  
+* commit 51b474ba59607a00c5f246833d8f3df4e810b86c
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 19 20:52:42 2012 -0400
+| 
+|     fixed an exception being thrown by the resize handler
+| 
+|  .../src/animated_sprite_viewer/ResizeHandler.java  |    4 +++-
+|  1 files changed, 3 insertions(+), 1 deletions(-)
+|  
+* commit 54875703b4f3180202ca48660a95fc7953da59b3
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 20:59:27 2012 -0400
+| 
+|     unfinished comments in ListHandler
+| 
+|  .../events/ComboBoxHandler.java                    |    4 +-
+|  .../animated_sprite_viewer/events/ListHandler.java |   68 ++++++++++----------
+|  2 files changed, 36 insertions(+), 36 deletions(-)
+|  
+* commit 3b04ef10e79a18d7bacff9b38c1459b21da57726
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 20:26:38 2012 -0400
+| 
+|     added comments to the ComboBoxHandler
+| 
+|  .../events/ComboBoxHandler.java                    |   36 +++++++++++--------
+|  1 files changed, 21 insertions(+), 15 deletions(-)
+|  
+* commit 5c2c704e69454be7bf84a9fd1b0dd394f84434f8
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 20:13:32 2012 -0400
+| 
+|     deleted extra printline and uncommented the repositioning in the list handler
+| 
+|  .../events/ComboBoxHandler.java                    |    1 -
+|  .../animated_sprite_viewer/events/ListHandler.java |    4 ++--
+|  2 files changed, 2 insertions(+), 3 deletions(-)
+|  
+* commit cce59a405f11d57486ad0352d0e14f2e2fb5bfcb
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 20:05:18 2012 -0400
+| 
+|     added the missing files
+| 
+|  .../AnimatedSpriteViewer.java                      |    2 +-
+|  .../src/animated_sprite_viewer/ResizeHandler.java  |   55 ++++++++++++++++++++
+|  2 files changed, 56 insertions(+), 1 deletions(-)
+|  
+* commit b5b1eeb6f4df2c332f441be40369d1c9ceaf25a1
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 19:07:24 2012 -0400
+| 
+|     added a resize handeler
+| 
+|  .../AnimatedSpriteViewer.java                      |    1 +
+|  .../animated_sprite_viewer/events/ListHandler.java |    4 ++--
+|  2 files changed, 3 insertions(+), 2 deletions(-)
+|  
+* commit 2b87a6c037c2e8301de555dbb21c80d729a3cd1e
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 18:31:35 2012 -0400
+| 
+|     fixed the listhandler init
+| 
+|  .../AnimatedSpriteViewer.java                      |    2 +-
+|  1 files changed, 1 insertions(+), 1 deletions(-)
+|  
+* commit 4e189f0fc11e25378d3aa6e337f1be0499f48bb2
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 18:28:06 2012 -0400
+| 
+|     made the ListHandler reposition the sprite to the center
+| 
+|  .../AnimatedSpriteViewer.java                      |    7 +++++--
+|  .../animated_sprite_viewer/events/ListHandler.java |   14 +++++++++-----
+|  2 files changed, 14 insertions(+), 7 deletions(-)
+|  
+* commit f27795d1ee869966a340c096ad4dbc32b7c25267
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Tue Sep 18 17:45:00 2012 -0400
+| 
+|     fixed the image file path and swapped the speed up and slow down handlers
+| 
+|  .../AnimatedSpriteViewer.java                      |   26 ++++++++++---------
+|  .../events/ComboBoxHandler.java                    |    1 +
+|  .../animated_sprite_viewer/events/ListHandler.java |    8 ++++-
+|  .../events/SlowDownAnimationHandler.java           |    2 +-
+|  .../events/SpeedUpAnimationHandler.java            |    2 +-
+|  5 files changed, 23 insertions(+), 16 deletions(-)
+|  
+* commit a75952b8d2b5731e79025396b3255e65d917a419
+| Author: michael salerno <roofis20002003@yahoo.com>
+| Date:   Fri Sep 14 02:20:33 2012 -0400
+| 
+|     made the listhandler delete all sprites in the renderer and add a new one when a new sprite was selected
+| 
+|  .../AnimatedSpriteViewer.java                      |    5 ++---
+|  .../animated_sprite_viewer/events/ListHandler.java |   11 +++++++++--
+|  2 files changed, 11 insertions(+), 5 deletions(-)
+|  
+* commit 51661248bede6d3817f364cb63834f9fda87dea8
+| Author: michael salerno <roofis20002003@yahoo.com>
+| Date:   Fri Sep 14 02:10:41 2012 -0400
+| 
+|     got comboboxhandler working i think
+| 
+|  AnimatedSpriteViewer/nbproject/project.properties  |    4 +-
+|  .../AnimatedSpriteViewer.java                      |   87 ++++++++++----------
+|  .../events/ComboBoxHandler.java                    |   39 ++++-----
+|  3 files changed, 62 insertions(+), 68 deletions(-)
+|  
+* commit 2290b4226fc8cea6c2ac560c821bc16a366f99b5
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 13 21:19:47 2012 -0400
+| 
+|     added a combo box listener
+| 
+|  .../events/ComboBoxHandler.java                    |   43 ++++++++++++++++++++
+|  1 files changed, 43 insertions(+), 0 deletions(-)
+|  
+* commit ebaca432c862fc41319ecd6d271389a96261ceba
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 13 21:11:06 2012 -0400
+| 
+|     got jcombobox working
+| 
+|  .../AnimatedSpriteViewer.java                      |    2 +
+|  .../animated_sprite_viewer/events/ListHandler.java |   44 ++++++++++++-------
+|  2 files changed, 30 insertions(+), 16 deletions(-)
+|  
+* commit 916a5787c3366d6cb2d58b09b2b67e7df44fc6a7
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 13 20:32:25 2012 -0400
+| 
+|     starting the ListHandeler
+| 
+|  .../animated_sprite_viewer/events/ListHandler.java |   43 ++++++++++++++++++++
+|  1 files changed, 43 insertions(+), 0 deletions(-)
+|  
+* commit e8e5b3152233f5fc2aa20534b8c023eed7e8e505
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Thu Sep 13 20:31:35 2012 -0400
+| 
+|     got the gui to load all of the sprites
+| 
+|  .../AnimatedSpriteViewer.java                      |   40 +++++++++++++++++++-
+|  1 files changed, 39 insertions(+), 1 deletions(-)
+|  
+* commit bd7ccf112f93453cf54b635b8140531c8b5f69e0
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 19:41:14 2012 -0400
+| 
+|     added event handlers for buttons
+| 
+|  .../AnimatedSpriteViewer.java                      |    6 ++-
+|  .../events/SlowDownAnimationHandler.java           |   43 ++++++++++++++++++++
+|  .../events/SpeedUpAnimationHandler.java            |   43 ++++++++++++++++++++
+|  .../events/StopAnimationHandler.java               |   43 ++++++++++++++++++++
+|  4 files changed, 134 insertions(+), 1 deletions(-)
+|  
+* commit 0cca3bf19eda91b8233c6907de0e0107e3ca9524
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 18:57:00 2012 -0400
+| 
+|     added event handlers for buttons
+| 
+|  .../AnimatedSpriteViewer.java                      |    6 +++---
+|  1 files changed, 3 insertions(+), 3 deletions(-)
+|  
+* commit b61c25b4c86c35df522c22faf18c755eae7432e0
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 18:35:40 2012 -0400
+| 
+|     added all of the buttons
+| 
+|  .../AnimatedSpriteViewer.java                      |  177 +++++++++-----------
+|  .../AnimatedSpriteXMLLoader.java                   |    1 +
+|  2 files changed, 81 insertions(+), 97 deletions(-)
+|  
+* commit c8719bb70de9c948a3bc8d02c163a6ec9a220d58
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 18:13:12 2012 -0400
+| 
+|     added the spriterenderer for real
+| 
+|  AnimatedSpriteViewer/SpriteRenderer.jar |  Bin 0 -> 46005 bytes
+|  1 files changed, 0 insertions(+), 0 deletions(-)
+|  
+* commit 39aba05fcb3238196da25a9a93b446ff281d9e4d
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 18:12:06 2012 -0400
+| 
+|     changed gitignore
+| 
+|  .gitignore |    4 +++-
+|  1 files changed, 3 insertions(+), 1 deletions(-)
+|  
+* commit 744ae172c650ef3116ed9fcc59f316be66ca332b
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 17:34:29 2012 -0400
+| 
+|     added the SpriteRenderer.jar
+| 
+|  AnimatedSpriteViewer/nbproject/project.properties |    2 +-
+|  1 files changed, 1 insertions(+), 1 deletions(-)
+|  
+* commit c11aec29c5f1dc0731d5da4fff5c76c176ed9f05
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 17:25:10 2012 -0400
+| 
+|     added my netbeans project
+| 
+|  AnimatedSpriteViewer/build.xml                     |   74 +
+|  .../data/buttons/SlowDownAnimationButton.png       |  Bin 0 -> 752 bytes
+|  .../data/buttons/SpeedUpAnimationButton.png        |  Bin 0 -> 683 bytes
+|  .../data/buttons/StartAnimationButton.png          |  Bin 0 -> 581 bytes
+|  .../data/buttons/StopAnimationButton.png           |  Bin 0 -> 394 bytes
+|  .../data/sprite_types/box_man/box_man.xml          |  104 ++
+|  .../data/sprite_types/box_man/box_man_IDLE_1.png   |  Bin 0 -> 560 bytes
+|  .../data/sprite_types/box_man/box_man_IDLE_2.png   |  Bin 0 -> 564 bytes
+|  .../data/sprite_types/box_man/box_man_IDLE_3.png   |  Bin 0 -> 565 bytes
+|  .../data/sprite_types/box_man/box_man_IDLE_4.png   |  Bin 0 -> 566 bytes
+|  .../data/sprite_types/box_man/box_man_IDLE_5.png   |  Bin 0 -> 569 bytes
+|  .../box_man/box_man_WALKING_DOWN_1.png             |  Bin 0 -> 580 bytes
+|  .../box_man/box_man_WALKING_DOWN_2.png             |  Bin 0 -> 578 bytes
+|  .../box_man/box_man_WALKING_DOWN_3.png             |  Bin 0 -> 566 bytes
+|  .../box_man/box_man_WALKING_DOWN_4.png             |  Bin 0 -> 582 bytes
+|  .../box_man/box_man_WALKING_DOWN_5.png             |  Bin 0 -> 579 bytes
+|  .../box_man/box_man_WALKING_LEFT_1.png             |  Bin 0 -> 536 bytes
+|  .../box_man/box_man_WALKING_LEFT_2.png             |  Bin 0 -> 522 bytes
+|  .../box_man/box_man_WALKING_LEFT_3.png             |  Bin 0 -> 516 bytes
+|  .../box_man/box_man_WALKING_LEFT_4.png             |  Bin 0 -> 522 bytes
+|  .../box_man/box_man_WALKING_LEFT_5.png             |  Bin 0 -> 529 bytes
+|  .../box_man/box_man_WALKING_RIGHT_1.png            |  Bin 0 -> 548 bytes
+|  .../box_man/box_man_WALKING_RIGHT_2.png            |  Bin 0 -> 534 bytes
+|  .../box_man/box_man_WALKING_RIGHT_3.png            |  Bin 0 -> 528 bytes
+|  .../box_man/box_man_WALKING_RIGHT_4.png            |  Bin 0 -> 536 bytes
+|  .../box_man/box_man_WALKING_RIGHT_5.png            |  Bin 0 -> 540 bytes
+|  .../sprite_types/box_man/box_man_WALKING_UP_1.png  |  Bin 0 -> 484 bytes
+|  .../sprite_types/box_man/box_man_WALKING_UP_2.png  |  Bin 0 -> 481 bytes
+|  .../sprite_types/box_man/box_man_WALKING_UP_3.png  |  Bin 0 -> 472 bytes
+|  .../sprite_types/box_man/box_man_WALKING_UP_4.png  |  Bin 0 -> 487 bytes
+|  .../sprite_types/box_man/box_man_WALKING_UP_5.png  |  Bin 0 -> 482 bytes
+|  .../data/sprite_types/round_man/round_man.xml      |   45 +
+|  .../round_man/round_man_BOUNCING_1.png             |  Bin 0 -> 1671 bytes
+|  .../round_man/round_man_BOUNCING_2.png             |  Bin 0 -> 1578 bytes
+|  .../round_man/round_man_BOUNCING_3.png             |  Bin 0 -> 1579 bytes
+|  .../round_man/round_man_BOUNCING_4.png             |  Bin 0 -> 1561 bytes
+|  .../round_man/round_man_BOUNCING_5.png             |  Bin 0 -> 1646 bytes
+|  .../sprite_types/round_man/round_man_IDLE_1.png    |  Bin 0 -> 1618 bytes
+|  .../sprite_types/round_man/round_man_IDLE_2.png    |  Bin 0 -> 1617 bytes
+|  .../sprite_types/round_man/round_man_IDLE_3.png    |  Bin 0 -> 1579 bytes
+|  .../sprite_types/round_man/round_man_IDLE_4.png    |  Bin 0 -> 1614 bytes
+|  .../sprite_types/round_man/round_man_IDLE_5.png    |  Bin 0 -> 1661 bytes
+|  .../data/sprite_types/sprite_type.xsd              |   48 +
+|  .../data/sprite_types/sprite_type_list.xml         |    5 +
+|  .../data/sprite_types/sprite_type_list.xsd         |   10 +
+|  AnimatedSpriteViewer/manifest.mf                   |    3 +
+|  AnimatedSpriteViewer/nbproject/build-impl.xml      | 1400 ++++++++++++++++++++
+|  AnimatedSpriteViewer/nbproject/genfiles.properties |    8 +
+|  AnimatedSpriteViewer/nbproject/project.properties  |   86 ++
+|  AnimatedSpriteViewer/nbproject/project.xml         |   15 +
+|  .../AnimatedSpriteViewer.java                      |  273 ++++
+|  .../AnimatedSpriteXMLLoader.java                   |  227 ++++
+|  .../InvalidXMLFileFormatException.java             |   48 +
+|  .../WhitespaceFreeXMLDoc.java                      |  139 ++
+|  .../WhitespaceFreeXMLNode.java                     |  163 +++
+|  .../events/StartAnimationHandler.java              |   43 +
+|  56 files changed, 2691 insertions(+), 0 deletions(-)
+|  
+* commit 7764a7a009bde03db1aee02b9aa840f376cda827
+| Author: Michael Salerno <roofis20002003@yahoo.com>
+| Date:   Wed Sep 12 17:12:37 2012 -0400
+| 
+|     changed the ignore file
+| 
+|  .gitignore |   55 +++++++++++++++++++++++++++++++++++++++++++++++++------
+|  1 files changed, 49 insertions(+), 6 deletions(-)
+|  
+* commit b321791dc608cbffbfe8d63bdcc6047895d1f44f
+  Author: roofis0 <roofis20002003@yahoo.com>
+  Date:   Wed Sep 12 14:00:45 2012 -0700
+  
+      Initial commit
+  
+   .gitignore |    6 ++++++
+   README.md  |    4 ++++
+   2 files changed, 10 insertions(+), 0 deletions(-)

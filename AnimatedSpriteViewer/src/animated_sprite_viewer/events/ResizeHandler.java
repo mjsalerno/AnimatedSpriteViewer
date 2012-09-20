@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package animated_sprite_viewer;
+package animated_sprite_viewer.events;
 
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
